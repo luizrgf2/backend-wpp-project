@@ -6,14 +6,15 @@ import { ConfigInterfaceDTO } from 'src/interfaces/config.interface';
 
 
 @Injectable()
-export class RedisService implements OnModuleDestroy, OnModuleInit, CacheInterface {
+export class RedisService implements OnModuleDestroy, CacheInterface {
   private readonly redisClient: Redis;
 
   constructor() {
+    
     this.redisClient = new Redis({
+      
       host: process.env.REDIS_HOST, 
       port: +process.env.REDIS_PORT,
-      password: process.env.REDIS_PASS
     });
 
     this.redisClient.on('error', e => {
@@ -21,9 +22,6 @@ export class RedisService implements OnModuleDestroy, OnModuleInit, CacheInterfa
     });
   }
 
-  async onModuleInit() {
-    await this.redisClient.connect()
-  }
 
   async onModuleDestroy(): Promise<void> {
     await this.redisClient.disconnect();
