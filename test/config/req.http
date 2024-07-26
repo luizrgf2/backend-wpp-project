@@ -1,0 +1,9 @@
+PUT http://localhost:3000/config HTTP/1.1
+content-type: application/json
+
+{
+    "startTime": 3,
+    "endTime": 50
+}
+###
+GET http://localhost:3000/config HTTP/1.1
