@@ -12,7 +12,7 @@ export class RMQProducer implements OnModuleInit {
     
     async onModuleInit() {
         this.messageQueueName = process.env.RMQ_MESSAGE_QUEUE
-        const connection = amqp.connect(['amqp://localhost']);
+        const connection = amqp.connect([process.env.RMQ_URL_CONN]);
         this.channelWrapper = connection.createChannel({
           setup: async (channel: Channel) => {
             return await channel.assertQueue(this.messageQueueName, { durable: true });

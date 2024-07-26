@@ -1,0 +1,9 @@
+POST http://localhost:3000/messages/send/text HTTP/1.1
+content-type: application/json
+
+{
+    "textMessage": "Olá tudo bem?",
+    "contactNumber": "34997659577"
+}
+###
+GET http://localhost:3000/config HTTP/1.1
