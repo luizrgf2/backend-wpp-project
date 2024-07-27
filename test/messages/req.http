@@ -2,7 +2,7 @@ POST http://localhost:3000/messages/send/text HTTP/1.1
 content-type: application/json
 
 {
-    "textMessage": "Olá tudo bem?",
+    "textMessage": "Teste Meu nome é luiz",
     "contactNumber": "34997659577"
 }
 ###

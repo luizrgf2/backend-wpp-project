@@ -12,3 +12,14 @@ services:
     image: redis:6-alpine
     ports:
       - "6379:6379"
+  
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_whats
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: whats
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+    ports:
+      - "3306:3306"
