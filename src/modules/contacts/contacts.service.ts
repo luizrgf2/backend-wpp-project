@@ -25,4 +25,15 @@ export class ContactsService {
             throw new HttpException('Erro para criar contatos!', HttpStatus.INTERNAL_SERVER_ERROR)
         }
     }
+
+    async deleteAllContacts() {
+        try{
+
+            await this.prismaService.contacts.deleteMany()
+
+        }catch(e) {
+            Logger.error(e)
+            throw new HttpException('Erro para deletar contatos!', HttpStatus.INTERNAL_SERVER_ERROR)
+        }
+    }
 }
