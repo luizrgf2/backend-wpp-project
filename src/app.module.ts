@@ -3,6 +3,7 @@ import { ConfigModule as ConfigurationModule } from './modules/config/config.mod
 import { ConfigModule } from '@nestjs/config';
 import { MessagesModule } from './modules/messages/messages.module';
 import { AMQConsumerModule } from './infra/amq.consumer.module';
+import { ContactsModule } from './modules/contacts/contacts.module';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { AMQConsumerModule } from './infra/amq.consumer.module';
       isGlobal: true
     }),
     MessagesModule,
+    ContactsModule,
   ],
 })
 export class AppModule {}
