@@ -30,5 +30,4 @@ export class RMQProducer implements OnModuleInit {
         Logger.error('Erro para enviar mensagem para a fila de mensagens!')
       }
     }
-
 }
