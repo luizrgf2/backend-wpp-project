@@ -6,4 +6,9 @@ content-type: application/json
     "contactNumber": "34997659577"
 }
 ###
-GET http://localhost:3000/config HTTP/1.1
+POST http://localhost:3000/messages/send/text/many HTTP/1.1
+content-type: application/json
+
+{
+    "textMessage": "Teste Meu nome é luiz"
+}
