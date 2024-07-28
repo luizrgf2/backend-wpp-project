@@ -1,6 +1,6 @@
 import { Body, Controller, HttpCode, HttpStatus, Post } from '@nestjs/common';
 import { SendTextMessageDTO } from './dto/sendTextMessage.dto';
-import { MessagesService } from './messages.service';
+import { MessagesService, SendTextMessageForAllContactsOutput } from './messages.service';
 import { SendTextMenssageForAllContactsDTO } from './dto/sendTextMenssageForAllContacts.dto';
 
 @Controller('messages')
@@ -18,7 +18,8 @@ export class MessagesController {
 
     @HttpCode(HttpStatus.OK)
     @Post('send/text/many')
-    async sendTextMessageForAllContacts(@Body() input: SendTextMenssageForAllContactsDTO) {
-        await this.messagesService.sendTextMessageForAllContacts(input)
+    async sendTextMessageForAllContacts(@Body() input: SendTextMenssageForAllContactsDTO): Promise<SendTextMessageForAllContactsOutput> {
+        const res = await this.messagesService.sendTextMessageForAllContacts(input)
+        return res
     }
 }

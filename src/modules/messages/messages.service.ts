@@ -6,7 +6,7 @@ import { PrismaService } from 'src/infra/prisma.service';
 import { RedisService } from 'src/infra/redis.service';
 
 
-interface SendTextMessageForAllContactsOutput {
+export interface SendTextMessageForAllContactsOutput {
     contacts: {
         contact: string,
         state: 'queue' | 'finalized'

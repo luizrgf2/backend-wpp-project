@@ -4,7 +4,9 @@ import { Server, Socket } from 'socket.io';
 import { MessageSessionInterface } from 'src/interfaces/messageSession.interface';
 
 @WebSocketGateway({
-
+  cors: {
+    origin: "*"
+  }
 })
 export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
 
@@ -29,6 +31,7 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
   }
 
   sendMenssageToClients(msg: MessageSessionInterface) {
+    Logger.log(msg)
     this.server.emit('session.update',msg)
   }
 

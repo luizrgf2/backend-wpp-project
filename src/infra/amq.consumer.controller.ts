@@ -11,7 +11,7 @@ export class AMQConsumerController {
         private readonly chatGateway: ChatGateway
     ) {}
 
-    @EventPattern(process.env.RMQ_SESSION_STATE_QUEUE)
+    @EventPattern('update.session')
     async handleMessages(@Payload() data: MessageSessionInterface) {
         this.chatGateway.sendMenssageToClients(data)
     }
